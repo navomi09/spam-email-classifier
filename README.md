@@ -30,7 +30,7 @@ We also enhanced the project with Edge Computing principles, enabling classifica
 5.	Joblib:
 - Joblib is used to serialize (save) the trained model and vectorizer to disk, so they can be reused without needing to retrain the model each time the application runs.
 
-How It Works:
+**How It Works:**
 1.	Fetching Emails:
 - The fetch_emails() function connects to Gmail using IMAP, fetches the latest unread emails, and extracts their subject and body.
 - These emails are then returned as a list of tuples (subject, body) to be classified.
