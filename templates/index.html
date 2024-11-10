@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpamFilter</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 70%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #5d8f7e;
+        }
+        .email-list {
+            margin-top: 20px;
+        }
+        .email-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .email-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .email-item p {
+            color: #555;
+        }
+        .result {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Filter for Emails</h1>
+        <form action="/classify" method="POST">
+            <button type="submit">Latest Emails</button>
+        </form>
+        
+        {% if emails %}
+        <div class="email-list">
+            {% for subject, result in emails %}
+            <div class="email-item">
+                <h3>{{ subject }}</h3>
+                <p>{{ result }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
